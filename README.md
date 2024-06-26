@@ -74,6 +74,46 @@ Create a file named "this-is-placeholder.blade.php" in "/resources/views/vendor/
 
 The the placeholder will be replaced by the content of the relative blade file "this-is-placeholder.blade.php"
 
+## Create Models
+```bash
+php artisan make:model Page -m
+```
+
+Paste this following code to your `Page.php` model
+```bash
+	<?php
+	
+	namespace App\Models;
+	
+	use Illuminate\Database\Eloquent\Factories\HasFactory;
+	use Illuminate\Database\Eloquent\Model;
+	use Dotlogics\Grapesjs\App\Traits\EditableTrait;
+	use Dotlogics\Grapesjs\App\Contracts\Editable;
+	
+	class Page extends Model implements Editable
+	{
+	    use HasFactory;
+	    use EditableTrait;
+	
+	}
+```
+
+Migration for `Page.php` model
+```bash
+	Schema::create('pages', function (Blueprint $table) {
+	    $table->id();
+	    $table->string('name');
+	    $table->longText('gjs_data')->nullable();
+	    $table->timestamps();
+	    $table->softDeletes();
+	});
+```
+
+## Update Package route `config\laravel-grapesjs.php`
+Comment out it first, if you don't have authentication page yet
+```bash
+// ->middleware(config('laravel-grapesjs.routes.middleware', []))
+```
 
 ## Templates
 You can create global templates (or blocks) in the "/resources/views/vendor/laravel-grapesjs/templates" directory. And the templates/blocks will be availabe in the block section of edittor.   You can also create model specific templates/blocks by defining getTemplatesPath/getGjsBlocksPath in model
