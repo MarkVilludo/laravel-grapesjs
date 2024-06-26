@@ -1,6 +1,6 @@
 # Laravel Grapesjs Editor
 
-This package provide an esay way to integrate [GrapesJS](https://grapesjs.com/) into your laravel proejct.
+This package provide an easy way to integrate [GrapesJS](https://grapesjs.com/) into your laravel proejct.
 
 ## Documentation
 https://medium.com/@akmalarzhang/build-your-own-website-builder-using-laravel-and-grapes-js-93226d82ea97
