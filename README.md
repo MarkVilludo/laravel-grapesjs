@@ -119,6 +119,20 @@ Comment out it first, if you don't have authentication page yet
 // ->middleware(config('laravel-grapesjs.routes.middleware', []))
 ```
 
+## To enable the image upload, make storage symbolic link to public folder
+```bash
+php artisan storage:link
+```
+
+## Then update the `config\laravel-grapesjs.php` and adjust the following
+```bash
+    'assets' => [
+        'disk' => 'local', //Default: local
+        'path' => 'laravel-grapesjs/media', //Default: 'laravel-grapesjs/media',
+        'upload_url' => null,
+    ],
+```
+
 ## Templates
 You can create global templates (or blocks) in the "/resources/views/vendor/laravel-grapesjs/templates" directory. And the templates/blocks will be availabe in the block section of edittor.   You can also create model specific templates/blocks by defining getTemplatesPath/getGjsBlocksPath in model
 ```php
