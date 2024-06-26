@@ -113,6 +113,15 @@ Schema::create('pages', function (Blueprint $table) {
 });
 ```
 
+## Routes `web.php`
+```bash
+use App\Http\Controllers\PageController;
+
+ ...
+
+Route::get('pages/{page}/editor', [PageController::class, 'editor']);
+```
+
 ## Update Package route `config\laravel-grapesjs.php`
 Comment out it first, if you don't have authentication page yet
 ```bash
