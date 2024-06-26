@@ -36,7 +36,7 @@ class Page extends Model implements Editable
 
 3. Next Create a Route for editor
 ```php
-Route::get('pages/{page}/editor', 'PageController@editor');
+Route::get('pages/{page}/editor', [PageController::class, 'editor']);
 
 ```
 
@@ -78,7 +78,7 @@ Create a file named "this-is-placeholder.blade.php" in "/resources/views/vendor/
 
 The the placeholder will be replaced by the content of the relative blade file "this-is-placeholder.blade.php"
 
-## Create Model
+## Page Model Content
 ```bash
 php artisan make:model Page -m
 ```
@@ -102,7 +102,7 @@ class Page extends Model implements Editable
 }
 ```
 
-Migration for `Page.php` model
+Migration Schema
 ```bash
 Schema::create('pages', function (Blueprint $table) {
     $table->id();
@@ -111,15 +111,6 @@ Schema::create('pages', function (Blueprint $table) {
     $table->timestamps();
     $table->softDeletes();
 });
-```
-
-## Routes `web.php`
-```bash
-use App\Http\Controllers\PageController;
-
- ...
-
-Route::get('pages/{page}/editor', [PageController::class, 'editor']);
 ```
 
 ## Update Package route `config\laravel-grapesjs.php`
