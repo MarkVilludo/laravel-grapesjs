@@ -78,7 +78,7 @@ Create a file named "this-is-placeholder.blade.php" in "/resources/views/vendor/
 
 The the placeholder will be replaced by the content of the relative blade file "this-is-placeholder.blade.php"
 
-## Create Models
+## Create Model
 ```bash
 php artisan make:model Page -m
 ```
