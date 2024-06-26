@@ -81,32 +81,32 @@ php artisan make:model Page -m
 
 Paste this following code to your `Page.php` model
 ```bash
-	<?php
-	
-	namespace App\Models;
-	
-	use Illuminate\Database\Eloquent\Factories\HasFactory;
-	use Illuminate\Database\Eloquent\Model;
-	use Dotlogics\Grapesjs\App\Traits\EditableTrait;
-	use Dotlogics\Grapesjs\App\Contracts\Editable;
-	
-	class Page extends Model implements Editable
-	{
-	    use HasFactory;
-	    use EditableTrait;
-	
-	}
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Dotlogics\Grapesjs\App\Traits\EditableTrait;
+use Dotlogics\Grapesjs\App\Contracts\Editable;
+
+class Page extends Model implements Editable
+{
+    use HasFactory;
+    use EditableTrait;
+
+}
 ```
 
 Migration for `Page.php` model
 ```bash
-	Schema::create('pages', function (Blueprint $table) {
-	    $table->id();
-	    $table->string('name');
-	    $table->longText('gjs_data')->nullable();
-	    $table->timestamps();
-	    $table->softDeletes();
-	});
+Schema::create('pages', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->longText('gjs_data')->nullable();
+    $table->timestamps();
+    $table->softDeletes();
+});
 ```
 
 ## Update Package route `config\laravel-grapesjs.php`
